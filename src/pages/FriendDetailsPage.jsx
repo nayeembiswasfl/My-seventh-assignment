@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import {
   HiOutlineArchiveBox,
   HiOutlineBellAlert,
-  HiOutlineChatBubbleLeftRight,
   HiOutlinePencilSquare,
-  HiOutlinePhone,
   HiOutlineTrash,
-  HiOutlineVideoCamera,
 } from 'react-icons/hi2';
 import { Link, useParams } from 'react-router-dom';
+import callIcon from '../../assets/call.png';
+import textIcon from '../../assets/text.png';
+import videoIcon from '../../assets/video.png';
 import DetailActionButton from '../components/details/DetailActionButton';
 import DetailStatCard from '../components/details/DetailStatCard';
 import FriendDetailsLoader from '../components/details/FriendDetailsLoader';
@@ -175,9 +175,9 @@ function FriendDetailsPage() {
             <h2 className="text-2xl font-bold tracking-tight text-[#2d5d50]">Quick Check-In</h2>
 
             <div className="mt-5 grid gap-4 md:grid-cols-3">
-              <QuickCheckinButton icon={HiOutlinePhone} label="Call" />
-              <QuickCheckinButton icon={HiOutlineChatBubbleLeftRight} label="Text" />
-              <QuickCheckinButton icon={HiOutlineVideoCamera} label="Video" />
+              <QuickCheckinButton imageSrc={callIcon} imageAlt="Call" label="Call" />
+              <QuickCheckinButton imageSrc={textIcon} imageAlt="Text" label="Text" />
+              <QuickCheckinButton imageSrc={videoIcon} imageAlt="Video" label="Video" />
             </div>
           </article>
         </div>

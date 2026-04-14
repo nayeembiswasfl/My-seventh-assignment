@@ -1,5 +1,6 @@
 import facebook from '../../../assets/facebook.png';
 import instagram from '../../../assets/instagram.png';
+import logoXl from '../../../assets/logo-xl.png';
 import twitter from '../../../assets/twitter.png';
 
 const socials = [
@@ -12,7 +13,7 @@ function Footer() {
   return (
     <footer className="-mx-4 mt-16 bg-[#285847] px-4 text-white sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10">
       <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center px-4 py-16 text-center sm:px-6">
-        <h2 className="text-5xl font-extrabold tracking-tight sm:text-7xl">KeenKeeper</h2>
+        <img src={logoXl} alt="KeenKeeper" className="h-14 w-auto sm:h-20" />
         <p className="mt-6 max-w-3xl text-sm leading-7 text-white/75 sm:text-base">
           Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
         </p>
@@ -37,7 +38,7 @@ function Footer() {
         </div>
 
         <div className="mt-14 flex w-full flex-col gap-5 border-t border-white/10 pt-8 text-white/55 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm">© 2026 KeenKeeper. All rights reserved.</p>
+          <p className="text-sm">(c) 2026 KeenKeeper. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
             <a href="/" className="transition hover:text-white">
               Privacy Policy
