@@ -16,7 +16,7 @@ const iconMap = {
     alt: 'Video icon',
   },
   meetup: {
-    emoji: '🤝',
+    emoji: '\u{1F91D}',
   },
 };
 
@@ -46,4 +46,3 @@ function TimelineEntryCard({ entry }) {
 }
 
 export default TimelineEntryCard;
-

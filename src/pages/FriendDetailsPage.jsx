@@ -6,6 +6,7 @@ import {
   HiOutlineTrash,
 } from 'react-icons/hi2';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import callIcon from '../../assets/call.png';
 import textIcon from '../../assets/text.png';
 import videoIcon from '../../assets/video.png';
@@ -13,6 +14,7 @@ import DetailActionButton from '../components/details/DetailActionButton';
 import DetailStatCard from '../components/details/DetailStatCard';
 import FriendDetailsLoader from '../components/details/FriendDetailsLoader';
 import QuickCheckinButton from '../components/details/QuickCheckinButton';
+import { addInteractionEntry } from '../utils/interactionStorage';
 
 const statusClasses = {
   overdue: 'bg-[#f24848] text-white',
@@ -103,6 +105,12 @@ function FriendDetailsPage() {
     );
   }
 
+  function handleQuickCheckin(type) {
+    const entry = addInteractionEntry(type, friend.name);
+
+    toast.success(`${entry.title} with ${friend.name} added to your timeline.`);
+  }
+
   return (
     <section className="content-shell py-10 sm:py-16">
       <div className="grid gap-5 lg:grid-cols-[340px_minmax(0,1fr)]">
@@ -175,9 +183,24 @@ function FriendDetailsPage() {
             <h2 className="text-2xl font-bold tracking-tight text-[#2d5d50]">Quick Check-In</h2>
 
             <div className="mt-5 grid gap-4 md:grid-cols-3">
-              <QuickCheckinButton imageSrc={callIcon} imageAlt="Call" label="Call" />
-              <QuickCheckinButton imageSrc={textIcon} imageAlt="Text" label="Text" />
-              <QuickCheckinButton imageSrc={videoIcon} imageAlt="Video" label="Video" />
+              <QuickCheckinButton
+                imageSrc={callIcon}
+                imageAlt="Call"
+                label="Call"
+                onClick={() => handleQuickCheckin('call')}
+              />
+              <QuickCheckinButton
+                imageSrc={textIcon}
+                imageAlt="Text"
+                label="Text"
+                onClick={() => handleQuickCheckin('text')}
+              />
+              <QuickCheckinButton
+                imageSrc={videoIcon}
+                imageAlt="Video"
+                label="Video"
+                onClick={() => handleQuickCheckin('video')}
+              />
             </div>
           </article>
         </div>

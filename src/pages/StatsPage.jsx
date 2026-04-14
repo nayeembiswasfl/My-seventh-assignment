@@ -1,5 +1,5 @@
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
-import { timelineEntries } from '../data/timelineEntries';
+import { getTimelineEntries } from '../utils/interactionStorage';
 
 const chartConfig = [
   { type: 'text', label: 'Text', color: '#7c3aed' },
@@ -8,6 +8,7 @@ const chartConfig = [
 ];
 
 function StatsPage() {
+  const timelineEntries = getTimelineEntries();
   const chartData = chartConfig.map((item) => ({
     ...item,
     value: timelineEntries.filter((entry) => entry.type === item.type).length,

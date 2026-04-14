@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { HiChevronDown } from 'react-icons/hi2';
 import TimelineEntryCard from '../components/timeline/TimelineEntryCard';
-import { timelineEntries } from '../data/timelineEntries';
+import { getTimelineEntries } from '../utils/interactionStorage';
 
 const filters = [
   { value: 'all', label: 'Filter timeline' },
@@ -13,6 +13,7 @@ const filters = [
 
 function TimelinePage() {
   const [activeFilter, setActiveFilter] = useState('all');
+  const timelineEntries = getTimelineEntries();
   const filteredEntries =
     activeFilter === 'all'
       ? timelineEntries
