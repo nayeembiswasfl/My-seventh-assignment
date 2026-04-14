@@ -5,33 +5,50 @@ import twitter from '../../../assets/twitter.png';
 const socials = [
   { name: 'Facebook', icon: facebook, href: 'https://www.facebook.com/' },
   { name: 'Instagram', icon: instagram, href: 'https://www.instagram.com/' },
-  { name: 'Twitter', icon: twitter, href: 'https://x.com/' },
+  { name: 'X', icon: twitter, href: 'https://x.com/' },
 ];
 
 function Footer() {
   return (
-    <footer className="pb-6 pt-4 sm:pb-8">
-      <div className="section-card flex flex-col gap-6 px-5 py-6 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="font-display text-2xl text-brand-ink">Friendships deserve follow-through.</p>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-            Kindred Circle keeps your timeline, reminders, and quick check-ins in one calm space.
-          </p>
+    <footer className="-mx-4 mt-16 bg-[#285847] px-4 text-white sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10">
+      <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center px-4 py-16 text-center sm:px-6">
+        <h2 className="text-5xl font-extrabold tracking-tight sm:text-7xl">KeenKeeper</h2>
+        <p className="mt-6 max-w-3xl text-sm leading-7 text-white/75 sm:text-base">
+          Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
+        </p>
+
+        <div className="mt-7">
+          <p className="text-2xl font-semibold">Social Links</p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="mt-6 flex items-center gap-4">
           {socials.map((social) => (
             <a
               key={social.name}
               href={social.href}
               target="_blank"
               rel="noreferrer"
-              className="rounded-2xl bg-brand-sand p-3 ring-1 ring-brand-gold/30 transition hover:-translate-y-1"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-white transition hover:-translate-y-1"
               aria-label={social.name}
             >
               <img src={social.icon} alt="" className="h-5 w-5" />
             </a>
           ))}
+        </div>
+
+        <div className="mt-14 flex w-full flex-col gap-5 border-t border-white/10 pt-8 text-white/55 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm">© 2026 KeenKeeper. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
+            <a href="/" className="transition hover:text-white">
+              Privacy Policy
+            </a>
+            <a href="/" className="transition hover:text-white">
+              Terms of Service
+            </a>
+            <a href="/" className="transition hover:text-white">
+              Cookies
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -39,4 +56,3 @@ function Footer() {
 }
 
 export default Footer;
-
