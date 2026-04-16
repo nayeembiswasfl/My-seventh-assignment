@@ -9,7 +9,7 @@ const links = [
 
 function Navbar() {
   return (
-    <header className="-mx-4 border-b border-slate-200 bg-white px-5 sm:-mx-6 sm:px-8 lg:-mx-10 lg:px-14 xl:px-20">
+    <header className="sticky top-0 z-30 -mx-4 border-b border-slate-200 bg-white/95 px-5 backdrop-blur sm:-mx-6 sm:px-8 lg:-mx-10 lg:px-14 xl:px-20">
       <div className="flex w-full flex-col gap-4 py-4 sm:min-h-[78px] sm:flex-row sm:items-center sm:justify-between sm:py-0">
         <NavLink to="/" className="flex items-center leading-none">
           <p className="text-[2.15rem] font-extrabold tracking-tight text-slate-900">

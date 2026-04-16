@@ -14,6 +14,7 @@ import DetailActionButton from '../components/details/DetailActionButton';
 import DetailStatCard from '../components/details/DetailStatCard';
 import FriendDetailsLoader from '../components/details/FriendDetailsLoader';
 import QuickCheckinButton from '../components/details/QuickCheckinButton';
+import { getFriends } from '../utils/friendsApi';
 import { addInteractionEntry } from '../utils/interactionStorage';
 
 const statusClasses = {
@@ -50,13 +51,7 @@ function FriendDetailsPage() {
         setLoading(true);
         setError('');
 
-        const response = await fetch('/friends.json');
-
-        if (!response.ok) {
-          throw new Error('Failed to load the friend details.');
-        }
-
-        const data = await response.json();
+        const data = await getFriends();
         const matchedFriend = data.find((item) => String(item.id) === friendId);
 
         if (!matchedFriend) {

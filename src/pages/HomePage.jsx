@@ -3,6 +3,7 @@ import { HiOutlinePlus } from 'react-icons/hi2';
 import FriendCard from '../components/home/FriendCard';
 import HomePageLoader from '../components/home/HomePageLoader';
 import SummaryCard from '../components/home/SummaryCard';
+import { getFriends } from '../utils/friendsApi';
 
 function HomePage() {
   const [friends, setFriends] = useState([]);
@@ -17,16 +18,7 @@ function HomePage() {
         setLoading(true);
         setError('');
 
-        const [response] = await Promise.all([
-          fetch('/friends.json'),
-          new Promise((resolve) => setTimeout(resolve, 450)),
-        ]);
-
-        if (!response.ok) {
-          throw new Error('Failed to load friend data.');
-        }
-
-        const data = await response.json();
+        const data = await getFriends();
 
         if (isMounted) {
           setFriends(data);
