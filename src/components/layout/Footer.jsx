@@ -1,12 +1,11 @@
-import facebook from '../../../assets/facebook.png';
-import instagram from '../../../assets/instagram.png';
 import logoXl from '../../../assets/logo-xl.png';
-import twitter from '../../../assets/twitter.png';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const socials = [
-  { name: 'Facebook', icon: facebook, href: 'https://www.facebook.com/' },
-  { name: 'Instagram', icon: instagram, href: 'https://www.instagram.com/' },
-  { name: 'X', icon: twitter, href: 'https://x.com/' },
+  { name: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/' },
+  { name: 'Facebook', icon: FaFacebookF, href: 'https://www.facebook.com/' },
+  { name: 'X', icon: FaXTwitter, href: 'https://x.com/' },
 ];
 
 function Footer() {
@@ -23,16 +22,16 @@ function Footer() {
         </div>
 
         <div className="mt-6 flex items-center gap-4">
-          {socials.map((social) => (
+          {socials.map(({ name, icon: Icon, href }) => (
             <a
-              key={social.name}
-              href={social.href}
+              key={name}
+              href={href}
               target="_blank"
               rel="noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white transition hover:-translate-y-1"
-              aria-label={social.name}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white text-[#285847] shadow-[0_10px_24px_rgba(0,0,0,0.12)] transition hover:-translate-y-1 hover:bg-[#f5fbf8] hover:text-[#1f4538]"
+              aria-label={name}
             >
-              <img src={social.icon} alt="" className="h-5 w-5" />
+              <Icon className="text-lg" />
             </a>
           ))}
         </div>
